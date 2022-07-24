@@ -1,0 +1,13 @@
+# Ignoring other practiced projects, classworks and unncessary files
+
+/.git
+/mavenproject1
+/WebApplication
+/JavaApplicationWithAnt/*
+/NewWebApplication/*
+
+
+!/JavaApplicationWithAnt/src
+!/NewWebApplication/src/
+!/NewWebApplication/web/
+!.gitignore

@@ -1,0 +1,34 @@
+
+1. Write a program to select specfic columns (atleast 2 cols) from customers table with multiple conditions
+ (atleast two conditions)
+
+ 2. Write a program to demonstrate sub queries. 
+    Provide customerdetails who is having maximum balance using subquery.
+
+ 3. Write a program to select data from multiple columns of multiple tables. 
+   Use customers and student tables to select 2 fields from each table
+
+ 4. Program to delete and update a record of student table based on data read from user
+
+
+ 5. Write program to read multiple student details ( 10 records) from user and 
+    insert them to student table. Use for loop and PreparedStatement
+
+ 6. Demonstrate select query using Prepared Statement by reading data from user 
+    ( Read gpa and provide details of students whose gpa less than that entered)
+
+ 7. Write a program to perform jdbc batch processing - 
+    a. update customers balance (add 10000) where city is hyd and pune
+    b. Delete customers if balance is lessthan 50000
+    c & d. insert 2 customer records - 
+    e. update customers with balance with + 15000 if cid between 3000 and 7000
+    
+8. Demonstare transaction management - with student table ( take suitable case study)
+
+9. program to Read data from a text file (student.txt) and insert into student table
+   ( Use prepared statement)
+
+10. Program to demonstrate where, group by, order by, havaing with customers table
+    ( find customers group by city and provide details)
+    ( find rich customer group by city) 
+    ( Use aggregate functions)

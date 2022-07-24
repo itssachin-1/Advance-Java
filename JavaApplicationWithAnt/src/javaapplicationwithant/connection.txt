@@ -1,0 +1,111 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplicationwithant;
+import java.sql.*;
+
+// @author sachin
+
+public class JavaApplicationWithAnt {
+//     * @param args the command line arguments
+     
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello World!");
+        
+        // Step-1 load the driver
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        
+        // Step-2 connect to db
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "mysql01)");
+        if(con != null){
+            System.out.println("Connection Established!\n");
+            
+        // Step-3 create statement
+        Statement st= con.createStatement();    // to use sql query
+        String query= "select * from worker";
+//      String query2 = "insert into worker values(5, 'Jerry', 'Mountain Shadow')";
+// 
+        // Step-4 Obtain and process result
+          ResultSet rs= st.executeQuery(query);
+//        int x= st.executeUpdate(query2);
+//        if(x>0){
+//            System.out.println(x+" record(s) inserted!");
+//        }
+        
+                while(rs.next()){
+                    System.out.println(rs.getInt(1)+" |\t"+rs.getString(2)+"\t| "+rs.getString(3));
+                }
+        // Step-5 close connection
+                con.close();
+                st.close();
+                rs.close();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.sql.*;
+import java.util.Scanner;
+public class PSDemo {
+    public static void main(String[] args) throws Exception{
+        
+        DBConnection dbcon = new DBConnection();
+        Connection con = dbcon.getDBConnection();
+        if(con != null)
+            System.out.println("Connected");
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("How many customer records?");
+        int n = input.nextInt();
+        
+        PreparedStatement pst = null;
+        
+        for(int i=0;i<n;i++){
+            
+            System.out.println("Enter customer "+ (i+1)+ "details");
+            int id = input.nextInt(); // sid
+            String name = input.next(); // sname
+            double bal = input.nextDouble(); //balance
+            String city = input.next();          
+        
+        String q1 = "insert into customers values(?,?,?,?)";
+        pst = con.prepareStatement(q1);
+        
+        pst.setInt(1,id);
+        pst.setString(2,name);
+        pst.setDouble(3,bal);
+        pst.setString(4,city);
+         
+        int x = pst.executeUpdate();
+        
+        if(x>0)
+            System.out.println((i+1)+" record inserted!");
+        }
+        
+        PreparedStatement pst1 = con.prepareStatement("select * from customers");
+        ResultSet rs = pst1.executeQuery();
+        
+        while(rs.next())
+            System.out.println(rs.getInt(1)+ " "+ rs.getString(2)+" "+rs.getDouble(3)+" "+rs.getString(4));
+        
+        con.close();
+        pst.close();
+        rs.close();
+    }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: tahoma;
+            }
+            div{
+                background-color: gold;
+                width: 600px;
+                min-height: 300px;
+                border-radius: 4px;
+                padding: 21px;
+                margin: 6px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            h1{
+                padding-top: 16px;
+            }
+            a{
+                text-decoration: none;
+                font-weight: bold;
+                position: absolute;
+                top: 70%;
+                left: 70%;
+                transform: translate(-30%, -30%);
+            }
+            input{
+                /*border-style: none;*/
+                border-color: silver;
+                height: 21px;
+            }
+            input[type=submit]{
+                margin-left: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="./NewServlet" method="post">
+                <center>
+                    <h1><strong>Here you begin...</strong></h1><br>
+                    <!--<a href="./DisplayUserInput">User input >></a><br>-->
+                    <p>Enter your Name: <input type="text" name="name"></p>
+                    <input type="submit" value="Enter">
+                </center>
+            </form>
+        </div>
+    </body>
+</html>
